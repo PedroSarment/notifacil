@@ -23,7 +23,6 @@ class NewsFactory extends Factory
             'summary' => $this->faker->realText(150),
             'content' => $this->faker->realText(300),
             'views' => rand(1,100),
-            'public' => $this->faker->boolean(),
             'created_by' => User::factory(),
             'category_id' => Category::factory(),
         ];

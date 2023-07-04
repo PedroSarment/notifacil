@@ -18,7 +18,6 @@ class News extends Model
         'summary',
         'content',
         'views',
-        'public',
         'created_by',
         'updated_by',
         'category_id',
