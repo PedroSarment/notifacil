@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class News extends Model
 {
@@ -22,6 +21,7 @@ class News extends Model
         'public',
         'created_by',
         'updated_by',
+        'category_id',
     ];
 
     public function Created_by(): BelongsTo
@@ -32,5 +32,10 @@ class News extends Model
     public function Updated_by(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by', 'id');
+    }
+
+    public function Category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 }
