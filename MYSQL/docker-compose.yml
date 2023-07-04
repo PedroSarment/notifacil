@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  mysql-master:
+    image: 'bitnami/mysql:latest'
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=u[UiU6cyr.U:QYg,
+      - MYSQL_USER=notifacil-user
+      - MYSQL_PASSWORD=2y}:Azs0?l.[mM3n
+      - MYSQL_DATABASE=notifacil-bd
