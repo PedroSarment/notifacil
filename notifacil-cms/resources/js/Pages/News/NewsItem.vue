@@ -1,5 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+import FormatedDateTime from '@/Components/FormatedDateTime.vue';
 
 const props = defineProps({
 
@@ -22,7 +23,8 @@ const props = defineProps({
 
         <div class="text-primaryDark text-2xl font-bold">{{title}}</div>
         <div class="flex flex-row text-sm gap-2"> 
-            <img class="w-[18px]" src="/assets/icons/Relogio.svg"/> {{date}} 
+            <img class="w-[18px]" src="/assets/icons/Relogio.svg"/> 
+            <FormatedDateTime :date="date"/> 
             <img class="w-[18px]" src="/assets/icons/Person.svg"/> {{author}}
         </div>
         <div class="text-base">{{summary}}</div>

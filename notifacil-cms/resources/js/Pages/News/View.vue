@@ -4,6 +4,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import DangerButton from '@/Components/DangerButton.vue';
 import { Link } from '@inertiajs/vue3';
+import FormatedDateTime from '@/Components/FormatedDateTime.vue';
 
 defineProps({
 
@@ -31,7 +32,7 @@ defineProps({
 
             <div class="flex flex-row gap-3">
                 <img class="w-[18px]" src="/assets/icons/Relogio.svg"/>
-                <div>{{date}}</div>
+                <div><FormatedDateTime :date="date"/></div>
             </div>
             <div class="flex flex-row gap-3">
                 <img class="w-[18px]" src="/assets/icons/Person.svg"/>
