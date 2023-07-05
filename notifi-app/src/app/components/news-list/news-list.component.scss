@@ -1,0 +1,13 @@
+.category{  
+    background-color: var(--ion-color-medium);
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    padding: 2px 20px;
+    font-size: small;
+    color: var(--ion-color-medium-contrast);
+}
+
+ion-icon{
+    margin-left: 2px;
+}

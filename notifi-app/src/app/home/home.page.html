@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Notifacil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Notifacil
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-segment color="primary" value="recents">
+    <ion-segment-button value="recents" (click)="showsRecents()">
+      <ion-label>Recentes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="most_viewd" (click)="showsMostViewed()">
+      <ion-label>Mais Visualizadas</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <app-news-list [news]="news.data"></app-news-list>
+
+  <div class="button-container" [ngClass]="{'space-between': page > 1, 'flex-end': page < 2}">
+
+    <ion-button *ngIf="page > 1" (click)="showsPreviousPage()">
+      <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+      Anterior
+    </ion-button>
+    
+    <ion-button *ngIf="page < news['last_page']" (click)="showsNextPage()">
+      Próximo
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+
+  </div>
+
+</ion-content>
