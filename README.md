@@ -75,6 +75,30 @@ Certifique-se de que seu sistema atenda aos seguintes pré-requisitos:
 
 9. Abra um navegador da web e acesse a URL `http://localhost:8000`. A aplicação Laravel agora deve estar em execução localmente.
 
+## Executando os testes do Laravel
+
+Este repositório inclui testes para a aplicação Laravel. Siga as instruções abaixo para executar os testes.
+
+1. Certifique-se de que você esteja no diretório raiz do projeto.
+
+2. Execute o seguinte comando para executar os testes do Laravel:
+   ```
+   php artisan test
+   ```
+
+   Isso executará todos os testes presentes no diretório `tests/`.
+
+   Se você quiser executar um arquivo de teste específico, você pode usar o seguinte comando:
+   ```
+   php artisan test --filter NomeDoArquivoDeTeste
+   ```
+
+   Substitua `NomeDoArquivoDeTeste` pelo nome real do arquivo de teste que você deseja executar.
+
+3. O Laravel executará os testes e exibirá os resultados no terminal.
+
+Certifique-se de que o seu ambiente atenda aos pré-requisitos mencionados no README e que todas as dependências estejam instaladas corretamente para garantir que os testes sejam executados corretamente.
+
 ## Executando um aplicativo Ionic localmente
 
 Este repositório também contém um aplicativo Ionic. Siga as instruções abaixo para executar o aplicativo Ionic localmente.
