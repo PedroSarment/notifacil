@@ -69,4 +69,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(News::class, 'updated_by', 'id');
     }
+
+    public function Categorys(): HasMany
+    {
+        return $this->hasMany(Category::class, 'created_by', 'id');
+    }
 }
