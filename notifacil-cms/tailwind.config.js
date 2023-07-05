@@ -12,7 +12,21 @@ export default {
         './resources/js/**/*.vue',
     ],
 
-    theme: {
+    theme:{
+        colors: {
+            transparent: 'transparent',
+            current: 'currentColor',
+            primaryDark: '#075985',
+            primary: '#0284c7',
+            slate: '#cbd5e1',
+            white: '#ffffff',
+            error: '#C03221',
+            divider: '#e2e8f0',
+            greyDark: '#8A92A6',
+            errorDark: '#b91c1c',
+            error: '#C03221',
+            
+          },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
