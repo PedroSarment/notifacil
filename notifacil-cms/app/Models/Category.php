@@ -31,7 +31,7 @@ class Category extends Model
         return $this->belongsTo(User::class, 'updated_by', 'id');
     }
 
-    public function Images(): HasMany
+    public function News(): HasMany
     {
         return $this->hasMany(News::class, 'category_id', 'id');
     }
