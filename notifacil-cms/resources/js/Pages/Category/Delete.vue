@@ -25,12 +25,12 @@ const form = useForm({
 })
 
 function submit() { 
-    console.log(form)  
+      
     form.post('/categorias/apaga/' + Props.category.id)
 }
 
 function onCategorySelected(category) {
-    console.log(category)
+    
     form.category_id = category
 }
 
