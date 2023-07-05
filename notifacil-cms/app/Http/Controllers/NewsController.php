@@ -101,7 +101,8 @@ class NewsController extends Controller
 
     public function delete(Int $id)
     {
-        $news = News::find($id);
+        $news = News::with('Created_by')->with('Category')->get();
+        $news = $news->find($id);
 
         throw_if(!$news, GeneralException::class, 'Falha ao tentar acessar o Banco de Dados');
 
