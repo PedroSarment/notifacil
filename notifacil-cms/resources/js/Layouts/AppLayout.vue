@@ -7,10 +7,22 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import { onMounted  } from 'vue'
 
 defineProps({
     title: String,
 });
+
+const showNotification = ref(false)
+
+onMounted(() => {
+    showNotification.value = true
+    setTimeout(() => {
+
+        showNotification.value = false
+
+    }, 20000);
+})
 
 const showingNavigationDropdown = ref(false);
 
@@ -34,6 +46,9 @@ const logout = () => {
 
         <Banner />
 
+        <Status class="absolute w-full md:w-1/5 right-0 md:right-2 top-20" v-if="$page.props.flash.error" type="error" :status="$page.props.flash.error"/>
+        <Status class="absolute  w-full md:w-1/5 right-0 md:right-2 top-20" v-if="$page.props.flash.message && showNotification" type="sucess" :status="$page.props.flash.message"/>
+
         <div class="min-h-screen bg-slate">
             
             <nav class="bg-white boder border-b border-divider">
@@ -52,10 +67,7 @@ const logout = () => {
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('Inicio')" :active="route().current('Inicio')">
-                                    Início
-                                </NavLink>
-                                <NavLink :href="route('noticias')" :active="route().current('noticias')">
+                                <NavLink :href="route('Noticias')" :active="route().current('Noticias')">
                                     Notícias
                                 </NavLink>
                                 <NavLink :href="route('categorias')" :active="route().current('categorias')">
@@ -143,11 +155,8 @@ const logout = () => {
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     
-                    <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">   
-                            Início
-                        </ResponsiveNavLink>   
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                    <div class="pt-2 pb-3 space-y-1">  
+                        <ResponsiveNavLink :href="route('Noticias')" :active="route().current('Noticias')">
                             Notícias
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
@@ -192,7 +201,7 @@ const logout = () => {
             </nav>
 
             <!-- Page Content -->
-            <div class="max-w-7xl mx-auto">
+            <div class="max-w-7xl mx-auto py-8">
                 <main>
                     <slot/>
                 </main>
