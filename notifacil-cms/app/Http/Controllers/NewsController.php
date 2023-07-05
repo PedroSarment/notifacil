@@ -26,6 +26,34 @@ class NewsController extends Controller
         return self::render('index', $news);
     }
 
+    public function mostRecent()
+    {
+        $news = News::with('Created_by')->with('Category')->orderByDesc('created_at')->paginate();
+       
+        throw_if(!$news, GeneralException::class, 'Falha ao tentar acessar o Banco de Dados');
+
+        return response()->json($news);
+    }
+
+    public function mostViewed()
+    {
+        $news = News::with('Created_by')->with('Category')->orderByDesc('views')->paginate();
+       
+        throw_if(!$news, GeneralException::class, 'Falha ao tentar acessar o Banco de Dados');
+
+        return response()->json($news);
+    }
+
+    public function single(Int $id)
+    {
+        $news = News::with('Created_by')->with('Category')->get();
+        $news = $news->find($id);
+       
+        throw_if(!$news, GeneralException::class, 'Falha ao tentar acessar o Banco de Dados');
+
+        return response()->json($news);
+    }
+
     public function create()
     {
         $categorys = Category::all();
