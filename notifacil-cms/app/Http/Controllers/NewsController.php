@@ -96,17 +96,6 @@ class NewsController extends Controller
 
         throw_if(!$news, GeneralException::class, 'Falha ao tentar acessar o Banco de Dados');
        
-        $news = [
-            'id' => $news->id,
-            'views' => $news->views,
-            'created_at' => self::formatDateTime($news->created_at),
-            'title' => $news->title,
-            'created_by' => $news->Created_by,
-            'content' => $news->content,
-            'summary' => $news->summary,
-            'category' => $news->Category,
-        ];
-      
         return self::render('viewing', $news);
     }
 
@@ -115,17 +104,6 @@ class NewsController extends Controller
         $news = News::find($id);
 
         throw_if(!$news, GeneralException::class, 'Falha ao tentar acessar o Banco de Dados');
-
-        $news = [
-            'id' => $news->id,
-            'views' => $news->views,
-            'created_at' => self::formatDateTime($news->created_at),
-            'title' => $news->title,
-            'created_by' => $news->Created_by,
-            'content' => $news->content,
-            'summary' => $news->summary,
-            'category' => $news->Category,
-        ];
 
         return self::render('deleting', $news, null);
     }
@@ -139,12 +117,6 @@ class NewsController extends Controller
         throw_if(!$deleted, GeneralException::class, 'Não foi possível excluir a notícia');
 
         return redirect()->route('Noticias')->with('message', 'Noticia excluída com sucesso!');
-    }
-
-    private static function formatDateTime($data)
-    {
-        $data = Carbon::parse($data);
-        return $data->format('d/m/Y h:i:s');
     }
 
 }
