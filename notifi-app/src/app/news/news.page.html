@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="'voltar'" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="news != null">
+  <ion-item>
+    
+    <ion-label class="ion-text-wrap">
+    
+      <div class="category">{{news['category']['title']}}</div>
+
+      <h3>
+        <ion-icon name="time-outline"></ion-icon>
+        Data: {{formatCreatedAt(news['created_at'])}}
+      </h3>
+    
+      <h3>
+        <ion-icon name="person-outline"></ion-icon>
+        Autor: {{news['created_by']['name']}}
+      </h3>
+        
+    </ion-label>
+
+  </ion-item>
+  
+  <div class="ion-padding">
+
+    <h1> {{ news['title'] }}</h1>
+
+    <p>{{ news['summary'] }}</p>
+
+    <p>{{ news['content'] }}</p>
+  
+  </div>
+
+</ion-content>
