@@ -8,7 +8,6 @@ import TextAreaSecondary from '@/Components/TextAreaSecondary.vue'
 import PageTitle from '@/Components/PageTitle.vue'
 import { Link } from '@inertiajs/vue3';
 
-
 const Props = defineProps({
     categorys: {
         type: Object,
@@ -19,8 +18,6 @@ const Props = defineProps({
         default: null
     },
 });
-
-let publico = false;
 
 const form = useForm({  
     title: Props.news.title,
