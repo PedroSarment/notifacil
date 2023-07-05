@@ -9,7 +9,6 @@ use App\Models\Category;
 use Carbon\Carbon;
 use App\Http\Requests\NewsRequest;
 
-
 class NewsController extends Controller
 {
     private static function render($state = 'index', $news = null, $categorys = null)

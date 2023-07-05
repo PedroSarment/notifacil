@@ -75,3 +75,47 @@ Certifique-se de que seu sistema atenda aos seguintes pré-requisitos:
 
 9. Abra um navegador da web e acesse a URL `http://localhost:8000`. A aplicação Laravel agora deve estar em execução localmente.
 
+## Executando um aplicativo Ionic localmente
+
+Este repositório também contém um aplicativo Ionic. Siga as instruções abaixo para executar o aplicativo Ionic localmente.
+
+## Pré-requisitos
+
+Certifique-se de que seu sistema atenda aos seguintes pré-requisitos:
+
+- Node.js (versão 14.x ou superior)
+- Npm (gerenciador de pacotes do Node.js) (versão 9.x LTS ou superior)
+- Ionic CLI (versão 6.x ou superior)
+
+## Configuração inicial
+
+1. Certifique-se de que você já tenha clonado este repositório e esteja no diretório raiz do projeto.
+
+2. Navegue até o diretório do aplicativo Ionic:
+   ```
+   cd notifi-app
+   ```
+
+3. Instale as dependências do npm executando o seguinte comando:
+   ```
+   npm install
+   ```
+
+4. Inicie o aplicativo Ionic no seu navegador:
+   ```
+   ionic serve
+   ```
+
+   O comando acima iniciará o servidor de desenvolvimento do Ionic e abrirá o aplicativo no seu navegador padrão.
+
+   Se você quiser visualizar o aplicativo em um dispositivo móvel, adicione a flag `--external` ao comando `ionic serve`:
+   ```
+   ionic serve --external
+   ```
+   Isso permitirá que você acesse o aplicativo por meio de um endereço IP local no seu dispositivo móvel.
+
+5. Agora você pode interagir com o aplicativo Ionic localmente no seu navegador ou dispositivo móvel.
+
+Certifique-se de que o servidor de desenvolvimento do Laravel também esteja em execução (etapas 8 e 9 do README principal) para que o aplicativo Ionic possa se comunicar corretamente com a API do Laravel.
+
+Se você encontrar algum problema durante a execução do aplicativo Ionic, verifique se você seguiu corretamente os pré-requisitos e as etapas de configuração inicial. Certifique-se também de que as dependências do npm foram instaladas corretamente.
