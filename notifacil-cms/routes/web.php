@@ -3,6 +3,8 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Category;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,16 +23,6 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', ])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-    Route::get('/noticias', function () {
-        return Inertia::render('Dashboard');
-    })->name('noticias');
-    Route::get('/categorias', function () {
-        return Inertia::render('Welcome');
-    })->name('categorias');
-
     Route::controller(App\Http\Controllers\NewsController::Class)->group(function () {
 
         Route::get('/noticias', 'index')->name('Noticias');
@@ -41,6 +33,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::delete('/noticias/apaga/{id}', 'destroy')->name('Noticias/Apaga');
         Route::post('/noticias/atualiza/{id}', 'update')->name('Noticias/Atualiza');
         Route::get('/noticias/{id}', 'view')->name('Noticias/View');
+    });
+
+    Route::controller(App\Http\Controllers\CategoryController::Class)->group(function () {
+
+        Route::get('/categorias', 'index')->name('Categorias');
+        Route::get('/categorias/cadastro', 'create')->name('Coticias/Cadastro');
+        Route::post('/categorias/salva', 'store')->name('Categorias/Salva');
+        Route::get('/categorias/exclui/{id}', 'delete')->name('Categorias/Exclui');
+        Route::post('/categorias/apaga/{id}', 'destroy')->name('Categorias/Apaga');
     });
 
 });
