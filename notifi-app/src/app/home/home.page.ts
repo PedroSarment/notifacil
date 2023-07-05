@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
-import { MessageComponent } from '../message/message.component';
-
-import { DataService, Message } from '../services/data.service';
+import { BrokerBackendService } from 'src/app/services/brocker-backend.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,11 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  private data = inject(DataService);
+  private backend = inject(BrokerBackendService);
+  public page: number = 1
+  public news: any = []
+  public state: string = 'recents'
+  
   constructor() {}
 
   refresh(ev: any) {
@@ -19,7 +22,57 @@ export class HomePage {
     }, 3000);
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  async ngOnInit() {
+    
+    this.getRecentsFromBackend()  
+  }
+
+  async showsRecents(){
+    this.state = 'recents'
+    this.getRecentsFromBackend()
+  }
+
+  async showsMostViewed(){
+    this.state = 'most_viewed'
+    this.getMostViewdFromBackend()
+  }
+
+  showsNextPage() {
+    this.page += 1
+
+    if(this.state == 'recents'){
+
+      this.getRecentsFromBackend()
+    } 
+    else {
+
+      this.getMostViewdFromBackend() 
+    }
+  }
+
+  showsPreviousPage() {
+    this.page -= 1
+
+    if(this.state == 'recents'){
+
+      this.getRecentsFromBackend()
+    } 
+    else {
+
+      this.getMostViewdFromBackend() 
+    }
+  }
+
+  async getRecentsFromBackend() {
+    const resultado =  this.backend.connectInBackend('/api/noticias/recentes?page=' + this.page, 'GET' ).subscribe(result => {
+      this.news = result
+    });  
+  }
+
+  async getMostViewdFromBackend() {   
+    const resultado =  this.backend.connectInBackend('/api/noticias/mais_visualizadas?page=' + this.page, 'GET' ).subscribe(result => {
+      this.news = result
+    })
+  
   }
 }
