@@ -48,6 +48,7 @@ class NewsController extends Controller
     {
         $news = News::with('Created_by')->with('Category')->get();
         $news = $news->find($id);
+        $news->update([ 'views' => $news->views + 1 ]);
        
         throw_if(!$news, GeneralException::class, 'Falha ao tentar acessar o Banco de Dados');
 
