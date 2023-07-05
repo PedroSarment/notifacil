@@ -8,6 +8,7 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { onMounted  } from 'vue'
+import Status from '@/Components/Status.vue';
 
 defineProps({
     title: String,
