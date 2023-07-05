@@ -61,7 +61,7 @@ const logout = () => {
                             
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('Noticias')">
                                     <ApplicationMark class="block h-9 w-auto" />
                                 </Link>
                             </div>
@@ -71,7 +71,7 @@ const logout = () => {
                                 <NavLink :href="route('Noticias')" :active="route().current('Noticias')">
                                     Notícias
                                 </NavLink>
-                                <NavLink :href="route('categorias')" :active="route().current('categorias')">
+                                <NavLink :href="route('Categorias')" :active="route().current('Categorias')">
                                     Categorias
                                 </NavLink>
                             </div>
@@ -160,7 +160,7 @@ const logout = () => {
                         <ResponsiveNavLink :href="route('Noticias')" :active="route().current('Noticias')">
                             Notícias
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                        <ResponsiveNavLink :href="route('Categorias')" :active="route().current('Categorias')">
                             Categorias
                         </ResponsiveNavLink>
                     </div>
